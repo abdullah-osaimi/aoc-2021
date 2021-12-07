@@ -19,20 +19,23 @@ let boardWithAsterisk = board.map(element => element.slice())
 let currentDrawnNumberIndex = 0
 
 while (currentDrawnNumberIndex < drawnNumbers.length) {
-for (let row = 0; row < boardWithAsterisk.length; row++) 
-{
-    for (let column = 0; column < boardWithAsterisk[row].length; column++)
+
+    // test each board after drawing a number
+    // testing with the first board only
+    for (let row = 0; row < boardWithAsterisk.length; row++) 
     {
-        if (drawnNumbers[currentDrawnNumberIndex] == board[row][column]) {
-            boardWithAsterisk[row][column] = '*'
+        for (let column = 0; column < boardWithAsterisk[row].length; column++)
+        {
+            if (drawnNumbers[currentDrawnNumberIndex] == board[row][column]) {
+                boardWithAsterisk[row][column] = '*'
+            }
         }
     }
+
+    currentDrawnNumberIndex++;
+    checkIfBingo(boardWithAsterisk)
 }
 
-currentDrawnNumberIndex++;
-}
-
-checkIfBingo(boardWithAsterisk)
 
 function checkIfBingo(board) {
 
